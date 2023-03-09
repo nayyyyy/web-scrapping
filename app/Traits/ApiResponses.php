@@ -8,6 +8,18 @@ use Symfony\Component\HttpFoundation\Response;
 trait ApiResponses
 {
     /**
+     * Response with status code 501.
+     *
+     * @param  mixed  $data
+     * @param  string  $message
+     * @return JsonResponse
+     */
+    public function notImplemented(mixed $data, string $message = ''): JsonResponse
+    {
+        return $this->errorResponse($data, $message, Response::HTTP_NOT_IMPLEMENTED);
+    }
+
+    /**
      * Success Response.
      *
      * @param  mixed  $data

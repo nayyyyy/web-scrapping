@@ -36,7 +36,7 @@ class GetWebsiteContentRequest extends FormRequest
         throw new HttpResponseException(response()->json([
             'status' => "failed",
             'errors' => $validator->errors(),
-        ], Response::HTTP_NOT_ACCEPTABLE));
+        ], Response::HTTP_BAD_REQUEST));
     }
 
     public function messages()

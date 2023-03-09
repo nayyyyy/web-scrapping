@@ -20,7 +20,7 @@ class ScrapController extends Controller
         $information = $this->scrapRepository->getInformation($request->link);
 
         if (is_null($information)) {
-            return $this->badRequestResponse([
+            return $this->notImplemented([
                 "service" => "System fetching for this URL not available"
             ], "Data failed to fetch");
         }
