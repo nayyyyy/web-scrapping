@@ -48,8 +48,9 @@ class InformationParser
         @$dom->loadHTML($this->html);
         $xpath = new DOMXPath($dom);
 
+
         $this->data["title"] = $dom->getElementById("LeftSummaryPanel")->getElementsByTagName("span")->item(0)->textContent;
-        $this->data["price"] = $xpath->query('//span[@class="ux-textspans"]')->item(12)->textContent;
+        $this->data["price"] = $xpath->query('//span[@itemprop="price"]//span[@class="ux-textspans"]')->item(0)->textContent;
 
         $this->data["main-thumbnail"] = $xpath->query('//div[@class="ux-image-carousel-item active image"]/img')->item(0)->attributes->getNamedItem('src')->nodeValue;
         foreach ($xpath->query('//div[@class="ux-image-carousel-item image"]/img') as $key => $value) {
